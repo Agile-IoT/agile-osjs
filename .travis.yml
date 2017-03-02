@@ -12,14 +12,15 @@ cache:
 env:
   global:
     - DOCKER_CACHE_FILE=/home/travis/docker-cache/cache.tar.gz
+    - COMPONENT=agile-osjs
   matrix:
-    - IMAGE=agileiot/agile-osjs-armv7l
-    - IMAGE=agileiot/agile-osjs-x86_64
+    - IMAGE=agileiot/$COMPONENT-armv7l
+    - IMAGE=agileiot/$COMPONENT-x86_64
       BASEIMAGE=resin\\/nuc-node:7.2.1
 
 before_install:
-  - if [ -f /home/travis/docker-cache/cache.tar.gz ]; then
-      gunzip -c /home/travis/docker-cache/cache.tar.gz | docker load || true;
+  - if [ -f $DOCKER_CACHE_FILE ]; then
+      gunzip -c $DOCKER_CACHE_FILE | docker load || true;
     fi
 
 script:

@@ -1,11 +1,4 @@
-FROM resin/raspberrypi2-debian:jessie-20161010
-
-## Install dependencies and build tools. ##
-RUN apt-get update && apt-get install --no-install-recommends -y \
-  git \
-  npm \
-  nodejs-legacy \
-  && apt-get clean && rm -rf /var/lib/apt/lists/*
+FROM resin/raspberrypi3-node:7.2.1
 
 ## Clone the  Repo and install grunt ##
 COPY OS.js OS.js
@@ -35,6 +28,10 @@ RUN grunt manifest config packages:default/NodeRed
 ## Install Node red Dashboard
 COPY agile-nodered-dashboard-osjs src/packages/default/NodeRedDashboard
 RUN grunt manifest config packages:default/NodeRedDashboard
+
+## Install Node red Graphs
+COPY agile-contri-ui-osjs src/packages/default/NodeRedUI
+RUN grunt manifest config packages:default/NodeRedUI
 
 ## Install Agile Device Manager
 COPY agile-osjs-devicemanager src/packages/default/DeviceManager

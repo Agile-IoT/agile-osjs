@@ -18,7 +18,7 @@
 	url = https://github.com/Agile-IoT/agile-contri-ui-osjs.git
 [submodule "osjs-nodered"]
 	path = osjs-nodered
-	url = https://github.com/nopbyte/osjs-nodered.git
+	url = https://github.com/Agile-IoT/osjs-nodered.git
 [submodule "agile-idm-osjs"]
 	path = agile-idm-osjs
 	url = https://github.com/Agile-IoT/agile-idm-osjs.git

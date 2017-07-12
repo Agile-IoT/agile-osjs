@@ -1,12 +1,6 @@
 [submodule "OS.js"]
 	path = OS.js
 	url = https://github.com/Agile-IoT/Agile-OS.js.git
-[submodule "agile-grafana-osjs"]
-	path = agile-grafana-osjs
-	url = https://github.com/Agile-IoT/agile-grafana-osjs.git
-[submodule "agile-influxdb-osjs"]
-	path = agile-influxdb-osjs
-	url = https://github.com/Agile-IoT/agile-influxdb-osjs.git
 [submodule "agile-osjs-devicemanager"]
 	path = agile-osjs-devicemanager
 	url = https://github.com/Agile-IoT/agile-osjs-devicemanager.git

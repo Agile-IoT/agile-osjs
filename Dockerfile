@@ -8,7 +8,7 @@ RUN npm install -g grunt-cli supervisor
 WORKDIR OS.js/
 RUN npm install --production
 
-## Install Grafana menu item
+## Install IDM menu item
 COPY agile-idm-osjs agile-idm-osjs
 RUN agile-idm-osjs/agile-osjs-install.sh agile-idm-osjs
 #RUN grunt

@@ -13,14 +13,6 @@ COPY agile-idm-osjs agile-idm-osjs
 RUN agile-idm-osjs/agile-osjs-install.sh agile-idm-osjs
 #RUN grunt
 
-## Install Grafana menu item
-COPY agile-grafana-osjs src/packages/default/Grafana
-RUN grunt manifest config packages:default/Grafana
-
-## Install InfluxDB menu item
-COPY agile-influxdb-osjs src/packages/default/InfluxDB
-RUN grunt manifest config packages:default/InfluxDB
-
 ## Install Node red menu item
 COPY osjs-nodered src/packages/default/NodeRed
 RUN grunt manifest config packages:default/NodeRed

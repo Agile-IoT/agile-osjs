@@ -9,7 +9,9 @@
 #     Create-Net / FBK - initial API and implementation
 #-------------------------------------------------------------------------------
 
-FROM resin/raspberry-pi3-node:7.8.0-20170426
+ARG BASEIMAGE_BUILD=resin/raspberry-pi3-node:7.8.0-20170426
+
+FROM $BASEIMAGE_BUILD
 
 ## Clone the  Repo and install grunt ##
 COPY OS.js OS.js

@@ -1,3 +1,4 @@
+#!/bin/bash
 #-------------------------------------------------------------------------------
 # Copyright (C) 2017 Create-Net / FBK.
 # All rights reserved. This program and the accompanying materials
@@ -11,12 +12,20 @@
 
 if [ ! -f /etc/configured ]; then
    GW_HOST=${AGILE_HOST:-`cat /etc/hostname | xargs echo -n`.local}
-   grunt config -set=client.Connection.RedirectIDM --value=http://$GW_HOST:3000/oauth2/dialog/authorize/
+   if [ "$AGILE_SSL" == "1" ]
+   then
+       PROTO="https"
+       PORT=1444
+   else
+      PROTO="http"
+      PORT=3000
+   fi
+   grunt config -set=client.Connection.RedirectIDM --value=$PROTO://$GW_HOST:$PORT/oauth2/dialog/authorize/
    grunt
-   echo "var $GW_HOST"
+   echo "value for AGILE_SSL $AGILE_SSL"
+   echo "OS-JS configured to use IDM at: $PROTO://$GW_HOST:$PORT/oauth2/dialog/authorize/"
    echo "var $GW_HOST"
    touch /etc/configured
 fi
 
 ./bin/start-dev.sh
-

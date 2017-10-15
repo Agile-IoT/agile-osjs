@@ -19,7 +19,7 @@ RUN npm install -g grunt-cli supervisor
 
 ## Install and build OS.js ##
 WORKDIR OS.js/
-RUN npm install --production
+RUN npm -d install --production
 
 ## Install IDM menu item
 COPY agile-idm-osjs agile-idm-osjs

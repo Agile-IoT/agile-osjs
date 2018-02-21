@@ -28,8 +28,11 @@ then
    echo "value for AGILE_SSL $AGILE_SSL"
    echo "OS-JS configured to use IDM at: $PROTO://$GW_HOST:$PORT/oauth2/dialog/authorize/"
    echo "var $GW_HOST"
+   ./install_apps.sh
    echo "$GW_HOST">/etc/configured
 fi
+
+
 
 
 ./bin/start-dev.sh
